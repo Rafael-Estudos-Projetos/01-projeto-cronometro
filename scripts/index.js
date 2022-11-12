@@ -3,7 +3,8 @@
 
 import Controls from"./controls.js";
 import Timer from "./timer.js";
-import Sound from "./sounds.js"
+import Sound from "./sounds.js";
+
 import {
   buttonPlay,
   buttonPause,
@@ -53,30 +54,25 @@ buttonStop.addEventListener('click', function() {
   timer.reset()
 })
 
-buttonSoundOn.addEventListener('click', function() {
-  buttonSoundOn.classList.remove('hide')
-  buttonSoundOff.classList.add('hide')
-  // sound.bgAudio.play()
+buttonSoundOn.addEventListener('click', function () {
+  buttonSoundOn.classList.add('hide')
+  buttonSoundOff.classList.remove('hide')
+  sound.pressButton()
+  sound.bgAudio.pause()
 })
-console.log(buttonSoundOn.addEventListener('click', function() {
-  buttonSoundOn.classList.remove('hide')
+
+buttonSoundOff.addEventListener('click', function () {
   buttonSoundOff.classList.add('hide')
-  // sound.bgAudio.play()
-}))
+  buttonSoundOn.classList.remove('hide')
+  sound.bgAudio.play()
+})
 
-// buttonSoundOff.addEventListener('click', function() {
-//   buttonSoundOn.classList.add('hide')
-//   buttonSoundOff.classList.remove('hide')
-//   // sound.bgAudio.pause()
-// })
-
-buttonSet.addEventListener('click', function() {
+buttonSet.addEventListener('click', function () {
   let newMinutes = controls.getMinutes()
-  if(!newMinutes) {
+  if (!newMinutes) {
     timer.reset()
     return
   }
-  
   timer.updateDisplay(newMinutes, 0)
   timer.updateMinutes(newMinutes)
 })
