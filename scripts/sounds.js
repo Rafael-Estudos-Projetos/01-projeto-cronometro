@@ -3,6 +3,8 @@ export default function(){
   const kitchenTimer = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/kichen-timer.mp3?raw=true")
   const buttonPressAudio = new Audio("https://github.com/maykbrito/automatic-video-creator/blob/master/audios/button-press.wav?raw=true")
 
+  bgAudio.loop = true;
+
   function pressButton() {
     buttonPressAudio.play()
   }
@@ -10,11 +12,7 @@ export default function(){
   function timeEnd() {
     kitchenTimer.play()
   }
-
-  function bgAudioStart() {
-    bgAudio.play()
-  }
-
+  
   return {
     pressButton,
     timeEnd,
